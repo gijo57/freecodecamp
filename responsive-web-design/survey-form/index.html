@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='style.css'>
     <title>Survey Form</title>
 </head>
 <body>
-    <h1 id="title">Survey Form</h1>
-    <p id="description">Thank you for taking the time to answer this survey</p>
+    <div id='header'>
+        <h1 id="title">Survey Form</h1>
+        <p id="description"><em>Thank you for taking the time to answer this survey</em></p>
+    </div>
     <form id="survey-form">
         <div class='field-group'>
-            <label id='name-label' for='name'>Name</label>
-            <input type='text' name='name' id='name' required>
+            <label id='name-label' for='name'>Name*</label>
+            <input type='text' name='name' id='name' placeholder='Enter your name' required>
         </div>
         <div class='field-group'>
-            <label id=email-label' for='email'>Email</label>
-            <input type='email' name='email' id='email' required>
+            <label id=email-label' for='email'>Email*</label>
+            <input type='email' name='email' id='email' placeholder='Enter your email' required>
         </div>
         <div class='field-group'>
             <label id='number-label' for='number'>Number</label>
@@ -32,13 +35,37 @@
                 <option value="Gender nonconforming">Gender nonconforming</option>
             </select>
         </div>
-        <div class='field-group'>
-            <label>Is this survey cool?</label><br>
-            <input type="radio" id="yes" name="cool" value="yes">
-            <label for="yes">Yes</label><br>
-            <input type="radio" id="no" name="cool" value="no">
-            <label for="no">No</label><br>
+        <div class='field-group' id='cool'>
+            <p>Is this survey cool?</p>
+            <div class='choice'>
+                <input type="radio" id="yes" name="cool" value="yes">
+                <label for="yes">Yes</label>
+            </div>
+            <div class='choice'>
+                <input type="radio" id="no" name="cool" value="no">
+                <label for="no">No</label>
+            </div>
         </div>
+        <div class='field-group'>
+            <p>Which foods do you like?</p>
+            <div class='choice'>
+                <input type="checkbox" id="food1" name="food1" value="pizza">
+                <label for="food1">Pizza</label>
+            </div>
+            <div class='choice'>
+                <input type="checkbox" id="food2" name="food2" value="sushi">
+                <label for="food2">Sushi</label>                
+            </div>
+            <div class='choice'>
+                <input type="checkbox" id="food3" name="food3" value="burger">
+                <label for="food3">Burger</label><br>                
+            </div>
+        </div>
+        <div class='field-group'>
+            <p>Additional comments</p>
+            <textarea placeholder="Leave your comment here..."></textarea>
+        </div>
+        <input id='submit-btn'type='submit' value='Submit'>
     </form>
 </body>
 </html>
