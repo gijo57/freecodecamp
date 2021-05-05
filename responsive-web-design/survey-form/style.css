@@ -80,7 +80,8 @@ h1 {
     margin: 0;
 }
 
-#submit-btn {
+button {
+    font-size: 1.2em;
     margin: 20px;
     height: 50px;
     color: white;
