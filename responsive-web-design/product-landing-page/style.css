@@ -1,0 +1,92 @@
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background: rgba(182, 182, 182, 0.316);
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+#logo {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+}
+
+#logo > img {
+    margin-right: 10px;
+    height: 28px;
+}
+
+#logo-text {
+    font-family: 'Rock Salt', cursive;
+}
+
+header {
+    width: 100%;
+    background: rgba(182, 182, 182, 0.72);
+    margin-bottom: 20px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    display: flex;
+}
+
+nav > ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    padding: 0 40px;
+}
+
+form {
+    width: 300px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    width: 300px;
+    height: 25px;
+    margin: 5px;
+}
+
+#submit {
+    height: 30px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+section {
+    width: 800px;
+    margin: 50px;
+}
+
+.feature {
+    margin: 40px 20px;
+    display: flex;
+}
+
+.feature img {
+    width: 60px;
+    height: auto;
+    margin-right: 80px;
+}
+
+#features p {
+    margin: 5px 0;
+}
+
+h2 {
+    margin: 0;
+}
+
