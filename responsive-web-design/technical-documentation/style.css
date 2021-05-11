@@ -1,0 +1,68 @@
+body {
+    margin: auto;
+    font-family: 'Roboto Mono', monospace;
+}
+
+nav {
+    background: rgb(210, 210, 246);
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    border-right: 2px solid rgb(144, 144, 217);
+}
+
+main {
+    margin-left: 310px;
+}
+
+main header {
+    font-size: 30px;
+    color: rgb(144, 144, 217);
+}
+
+section {
+    padding: 30px;
+}
+
+section p {
+    padding: 0 20px;
+    color: rgb(60, 60, 60);
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+}
+
+nav div {
+    display:flex;
+    padding-left: 10px;
+    align-items: center;
+    height: 50px;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(144, 144, 217);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+
+nav #header {
+    height: 80px;
+    font-size: 35px;
+}
+
+code {
+    margin: 40px 20px 0 20px;
+    color: rgb(60, 60, 60);
+    padding: 20px;
+    display: block;
+    width: 90%;
+    background: rgb(233, 233, 233);
+    border-radius: 5px;
+}
+
+ul {
+    color:rgb(60, 60, 60);
+}
