@@ -1,3 +1,5 @@
+
+
 body {
     font-family: 'Righteous', cursive;
     display: flex;
@@ -10,7 +12,7 @@ body {
     flex-direction: column;
     width: 350px;
     height: 420px;
-    background: rgb(28, 28, 75);;
+    background: rgb(28, 28, 75);
 }
 
 #welcome-section {
@@ -36,6 +38,28 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+#contact {
+    display: flex;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+    background: #082174b6;
+}
+
+#contact h2 {
+    color:white;
+    margin: 0;
+    padding: 0;
+}
+
+#contact p {
+    color: rgb(28, 28, 75);
+    font-size: 30px;
+    margin: 10px;
+    padding: 0;
 }
 
 h1 {
@@ -100,4 +124,12 @@ ul {
 
 li {
     margin: 5px 30px;
+}
+
+#socials li {
+    width: 150px;
+    text-align: center;
+    color: white;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    padding: 5px;
 }
