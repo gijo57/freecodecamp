@@ -1,8 +1,11 @@
 #new-quote {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
     display: flex;
-    justify-content: flex-end;
-    margin: 20px;
-    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    width: 87%;
 }
 
 button {
@@ -12,6 +15,19 @@ button {
     border: none;
     height: 40px;
     width: 100px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    background-color: rgba(69, 67, 182, 0.741);
+    border-radius: 3px;
+    color: white;
+    border: none;
+    height: 20px;
+    width: 40px;
     padding: 10px;
     font-size: 15px;
 }
