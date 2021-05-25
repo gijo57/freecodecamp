@@ -1,7 +1,7 @@
-function Quote() {
+function Quote({ quote }) {
   return (
     <div id="quote-box" className="quoteBox">
-      Quote
+      {quote.text}
     </div>
   );
 }

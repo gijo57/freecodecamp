@@ -5,9 +5,9 @@ import QuoteButton from "./QuoteButton";
 function QuoteBox({ quote }) {
   return (
     <div id="quote-box" className="quoteBox">
-      <Quote quote={quote.text} />
-      <Author quote={quote.author} />
-      <QuoteButton />
+      <Quote id="text" quote={quote} />
+      <Author id="author" quote={quote} />
+      <QuoteButton id="new-quote" />
     </div>
   );
 }

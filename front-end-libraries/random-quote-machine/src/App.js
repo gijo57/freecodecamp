@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  const getSingleQuote = (quotes) => {
+    return quotes[Math.floor(Math.random() * quotes.length)];
+  };
+  const quote = getSingleQuote(quotes);
 
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -17,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <QuoteBox quote={quote} />
+      {quote ? <QuoteBox quote={quote} changeQuote={getSingleQuote} /> : null}
     </div>
   );
 }
