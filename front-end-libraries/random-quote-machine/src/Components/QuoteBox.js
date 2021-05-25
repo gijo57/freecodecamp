@@ -1,6 +1,7 @@
 import Quote from "./Quote";
 import Author from "./Author";
 import QuoteButton from "./QuoteButton";
+import "./QuoteBox.css";
 
 function QuoteBox({ quote }) {
   return (

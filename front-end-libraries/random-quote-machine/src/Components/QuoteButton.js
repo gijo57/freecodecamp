@@ -1,6 +1,6 @@
 function Author() {
   return (
-    <div id="quote-box" className="quoteBox">
+    <div id="new-quote" className="new-quote">
       <button>New Quote</button>
     </div>
   );

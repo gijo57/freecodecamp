@@ -1,7 +1,9 @@
+import "./Author.css";
+
 function Author({ quote }) {
   return (
-    <div id="quote-box" className="quoteBox">
-      {quote.author}
+    <div id="author" className="author">
+      {`- ${quote.author}`}
     </div>
   );
 }

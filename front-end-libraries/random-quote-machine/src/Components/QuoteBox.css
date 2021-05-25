@@ -1,0 +1,10 @@
+#quote-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    height: 250px;
+    padding: 50px;
+    border-radius: 3px;
+    background: white;
+  }
