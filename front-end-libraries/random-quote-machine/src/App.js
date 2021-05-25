@@ -4,17 +4,17 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
-
-  const getSingleQuote = (quotes) => {
-    return quotes[Math.floor(Math.random() * quotes.length)];
+  const [quote, setQuote] = useState({});
+  const getSingleQuote = () => {
+    setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
   };
-  const quote = getSingleQuote(quotes);
 
   useEffect(() => {
     const fetchQuotes = async () => {
       const res = await fetch("https://type.fit/api/quotes");
       const quotes = await res.json();
       setQuotes(quotes);
+      setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
     };
     fetchQuotes();
   }, []);

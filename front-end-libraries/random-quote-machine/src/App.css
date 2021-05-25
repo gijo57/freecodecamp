@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
 body {
+  color: rgba(69, 67, 182, 0.741);
+  font-family: 'Odibee Sans', cursive, Arial, Helvetica, sans-serif;
+  line-height: 50px;
   background-image: linear-gradient(to right, rgba(69, 67, 182, 0.611) , rgb(50, 50, 146));
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.App {
+  height: 100%;
 }
