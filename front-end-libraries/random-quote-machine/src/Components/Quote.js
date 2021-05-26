@@ -2,7 +2,7 @@ import "./Quote.css";
 
 function Quote({ quote }) {
   return (
-    <div id="quote" className="quote">
+    <div id="text" className="quote">
       {quote.text}
     </div>
   );
