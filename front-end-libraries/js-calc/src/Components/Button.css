@@ -1,0 +1,7 @@
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: blue;
+    box-sizing: content-box;
+}
