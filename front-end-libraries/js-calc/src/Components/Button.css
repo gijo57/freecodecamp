@@ -2,6 +2,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: blue;
+    background: rgba(  6, 21, 57,1);
     box-sizing: content-box;
+}
+
+.number {
+    background: rgba( 22, 41, 85,1);
+}
+
+.operator {
+    background: rgba( 79, 98,142,1);
+}
+
+#clear {
+    background-color: rgb(138, 1, 1);
+}
+
+#equals {
+    background-color: rgba( 46, 66,114,1);
 }

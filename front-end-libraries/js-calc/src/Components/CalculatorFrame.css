@@ -1,9 +1,14 @@
 #calcWrapper {
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(  6, 21, 57,1);
     width: 30%;
     height: 70%;
     padding: 5px;
-    border: 3px solid red;
+    border: 5px solid rgba( 22, 41, 85,1);
+    box-shadow: 0 0 20px;
 }
 
 .CalculatorFrame {
@@ -16,8 +21,10 @@
 }
 
 .ResultFrame {
-    font-size: 25px;
+    background-color: rgba(  6, 21, 57,1);
+    font-size: 50px;
     padding-right: 17px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -28,7 +35,8 @@
 }
 
 .ButtonFrame {
-    background-color: black;
+    font-size: 30px;
+    background-color: rgba(  6, 21, 57,1);
     color: white;
     height: 85%;
     width: 100%;

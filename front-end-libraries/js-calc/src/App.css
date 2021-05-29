@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 html, body, .App, #root {
-    height: 100%;
-    width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    height: 800px;
+    width: 1300px;
   }
   
 

@@ -1,8 +1,8 @@
 import "./Button.css";
 
-function Button({ character, id }) {
+function Button({ character, id, className }) {
   return (
-    <div id={id} className="Button">
+    <div id={id} className={`Button ${className}`}>
       {character}
     </div>
   );
