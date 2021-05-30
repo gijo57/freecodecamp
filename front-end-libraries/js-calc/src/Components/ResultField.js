@@ -1,9 +1,9 @@
 import "./ResultField.css";
 
-function ResultField({ operand }) {
+function ResultField({ operand, expression }) {
   return (
     <div id="display" className="ResultField">
-      <p id="currentCalc">{operand}</p>
+      <p id="currentCalc">{expression}</p>
       <br />
       <p id="currentOp">{operand}</p>
     </div>

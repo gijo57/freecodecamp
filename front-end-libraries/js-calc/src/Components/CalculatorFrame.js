@@ -4,19 +4,36 @@ import ResultField from "./ResultField";
 import "./CalculatorFrame.css";
 
 function CalculatorFrame() {
+  const [currentExpression, setCurrentExpression] = useState("");
   const [currentOperand, setCurrentOperand] = useState("");
   const handleOperandChange = (value) => {
-    if (!isNaN(value)) {
-      setCurrentOperand(currentOperand.concat(value));
+    if (!isNaN(value) || value === ".") {
+      if (isNaN(currentOperand)) {
+        setCurrentOperand(currentOperand.substr(1).concat(value));
+        setCurrentExpression(currentExpression.concat(value));
+      } else {
+        setCurrentOperand(currentOperand.concat(value));
+        setCurrentExpression(currentExpression.concat(value));
+      }
     } else if (value === "AC") {
       setCurrentOperand("");
+      setCurrentExpression("");
+    } else if (value === "=") {
+      console.log("hi");
+    } else {
+      setCurrentOperand(value);
+      setCurrentExpression(currentExpression.concat(value));
     }
   };
+
   return (
     <div id="calcWrapper">
       <div className="CalculatorFrame">
         <div className="ResultFrame">
-          <ResultField operand={currentOperand} />
+          <ResultField
+            expression={currentExpression}
+            operand={currentOperand}
+          />
         </div>
         <div className="ButtonFrame">
           <Button
