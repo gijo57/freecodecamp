@@ -7,20 +7,21 @@ function CalculatorFrame() {
   const [currentExpression, setCurrentExpression] = useState("");
   const [currentOperand, setCurrentOperand] = useState("");
   const [evaluated, setEvaluated] = useState(false);
-  console.log(evaluated);
   const handleOperandChange = (value) => {
     if (!isNaN(value) || value === ".") {
-      if (isNaN(currentOperand) && !evaluated) {
-        setCurrentOperand(currentOperand.substr(1).concat(value));
-        setCurrentExpression(currentExpression.concat(value));
-      } else {
-        if (evaluated) {
-          setCurrentOperand(value);
-          setCurrentExpression(value);
-          setEvaluated(false);
-        } else {
-          setCurrentOperand(currentOperand.concat(value));
+      if (value === "." && currentOperand.indexOf(".") > 0) {
+        if (isNaN(currentOperand) && !evaluated) {
+          setCurrentOperand(currentOperand.substr(1).concat(value));
           setCurrentExpression(currentExpression.concat(value));
+        } else {
+          if (evaluated) {
+            setCurrentOperand(value);
+            setCurrentExpression(value);
+            setEvaluated(false);
+          } else {
+            setCurrentOperand(currentOperand.concat(value));
+            setCurrentExpression(currentExpression.concat(value));
+          }
         }
       }
     } else if (value === "AC") {
@@ -29,8 +30,12 @@ function CalculatorFrame() {
     } else if (value === "=") {
       evaluateExpression(value);
     } else {
+      if (isOperand(currentExpression[currentExpression.length - 1])) {
+        setCurrentExpression(currentExpression.slice(0, -1).concat(value));
+      } else {
+        setCurrentExpression(currentExpression.concat(value));
+      }
       setCurrentOperand(value);
-      setCurrentExpression(currentExpression.concat(value));
     }
   };
 
@@ -40,7 +45,9 @@ function CalculatorFrame() {
     setCurrentOperand(result);
     setEvaluated(true);
   };
-
+  const isOperand = (value) => {
+    return value === "-" || "+" || "*" || "/";
+  };
   return (
     <div id="calcWrapper">
       <div className="CalculatorFrame">
