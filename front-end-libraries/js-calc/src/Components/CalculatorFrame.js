@@ -6,24 +6,39 @@ import "./CalculatorFrame.css";
 function CalculatorFrame() {
   const [currentExpression, setCurrentExpression] = useState("");
   const [currentOperand, setCurrentOperand] = useState("");
+  const [evaluated, setEvaluated] = useState(false);
+  console.log(evaluated);
   const handleOperandChange = (value) => {
     if (!isNaN(value) || value === ".") {
-      if (isNaN(currentOperand)) {
+      if (isNaN(currentOperand) && !evaluated) {
         setCurrentOperand(currentOperand.substr(1).concat(value));
         setCurrentExpression(currentExpression.concat(value));
       } else {
-        setCurrentOperand(currentOperand.concat(value));
-        setCurrentExpression(currentExpression.concat(value));
+        if (evaluated) {
+          setCurrentOperand(value);
+          setCurrentExpression(value);
+          setEvaluated(false);
+        } else {
+          setCurrentOperand(currentOperand.concat(value));
+          setCurrentExpression(currentExpression.concat(value));
+        }
       }
     } else if (value === "AC") {
       setCurrentOperand("");
       setCurrentExpression("");
     } else if (value === "=") {
-      console.log("hi");
+      evaluateExpression(value);
     } else {
       setCurrentOperand(value);
       setCurrentExpression(currentExpression.concat(value));
     }
+  };
+
+  const evaluateExpression = (value) => {
+    const result = "RES";
+    setCurrentExpression(currentExpression.concat(`${value} ${result}`));
+    setCurrentOperand(result);
+    setEvaluated(true);
   };
 
   return (
