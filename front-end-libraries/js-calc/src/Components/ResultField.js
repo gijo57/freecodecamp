@@ -1,11 +1,11 @@
 import "./ResultField.css";
 
-function ResultField() {
+function ResultField({ operand }) {
   return (
-    <div className="ResultField">
-      <p id="currentCalc">69</p>
+    <div id="display" className="ResultField">
+      <p id="currentCalc">{operand}</p>
       <br />
-      <p id="currentOp">69</p>
+      <p id="currentOp">{operand}</p>
     </div>
   );
 }
