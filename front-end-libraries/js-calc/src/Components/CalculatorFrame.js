@@ -5,27 +5,29 @@ import "./CalculatorFrame.css";
 
 function CalculatorFrame() {
   const [currentExpression, setCurrentExpression] = useState("");
-  const [currentOperand, setCurrentOperand] = useState("");
+  const [currentOperand, setCurrentOperand] = useState("0");
   const [evaluated, setEvaluated] = useState(false);
   const handleOperandChange = (value) => {
     if (!isNaN(value) || value === ".") {
-      if (value === "." && currentOperand.indexOf(".") > 0) {
-        if (isNaN(currentOperand) && !evaluated) {
-          setCurrentOperand(currentOperand.substr(1).concat(value));
-          setCurrentExpression(currentExpression.concat(value));
+      if (isNaN(currentOperand) && !evaluated) {
+        setCurrentOperand(currentOperand.substr(1).concat(value));
+        setCurrentExpression(currentExpression.concat(value));
+      } else {
+        if (evaluated) {
+          setCurrentOperand(value);
+          setCurrentExpression(value);
+          setEvaluated(false);
         } else {
-          if (evaluated) {
-            setCurrentOperand(value);
-            setCurrentExpression(value);
-            setEvaluated(false);
+          if (currentOperand === "0") {
+            setCurrentOperand(currentOperand.substr(1).concat(value));
           } else {
             setCurrentOperand(currentOperand.concat(value));
-            setCurrentExpression(currentExpression.concat(value));
           }
+          setCurrentExpression(currentExpression.concat(value));
         }
       }
     } else if (value === "AC") {
-      setCurrentOperand("");
+      setCurrentOperand("0");
       setCurrentExpression("");
     } else if (value === "=") {
       evaluateExpression(value);
@@ -46,7 +48,7 @@ function CalculatorFrame() {
     setEvaluated(true);
   };
   const isOperand = (value) => {
-    return value === "-" || "+" || "*" || "/";
+    return value === "-" || value === "+" || value === "*" || value === "/";
   };
   return (
     <div id="calcWrapper">
