@@ -42,7 +42,7 @@ function CalculatorFrame() {
   };
 
   const evaluateExpression = (value) => {
-    const result = "RES";
+    const result = eval(currentExpression);
     setCurrentExpression(currentExpression.concat(`${value} ${result}`));
     setCurrentOperand(result);
     setEvaluated(true);
