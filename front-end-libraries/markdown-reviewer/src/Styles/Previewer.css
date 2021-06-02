@@ -1,0 +1,31 @@
+.Previewer {
+    width: 50%;
+    height: 500px;
+    margin: 50px;
+    box-shadow: 0 0 15px;
+}
+
+#preview {
+    margin: 0;
+    border: 1px solid black;
+    width: 716px;
+    height: 466px;
+    background-color: #E1E4E9;
+}
+
+#previewTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    border: 1px solid black;
+    width: 720px;
+    height: 26px;
+    background: #3E5476;
+}
+
+#previewTitle > p {
+    color: white;
+    margin: 0 0 0 20px;
+    padding: 0;
+}

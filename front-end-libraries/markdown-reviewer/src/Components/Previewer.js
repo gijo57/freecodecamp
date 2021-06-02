@@ -3,7 +3,10 @@ import "../Styles/Previewer.css";
 function Previewer({ preview }) {
   return (
     <div className="Previewer">
-      <div>Previewer</div>
+      <div id="previewTitle">
+        <p>Previewer</p>
+        <div>X</div>
+      </div>
       <div id="preview" dangerouslySetInnerHTML={preview} />
     </div>
   );

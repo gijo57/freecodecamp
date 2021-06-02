@@ -6,7 +6,10 @@ function Editor({ markdown, setMarkdown }) {
   };
   return (
     <div className="Editor">
-      <div>Editor</div>
+      <div id="editorTitle">
+        <p>Editor</p>
+        <div>X</div>
+      </div>
       <textarea
         onChange={handleChange}
         defaultValue={markdown}

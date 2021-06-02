@@ -15,7 +15,7 @@ function App() {
   }, [markdown]);
 
   const parseMarkdown = (markdown) => {
-    var rawMarkup = marked(markdown);
+    let rawMarkup = marked(markdown);
     return { __html: rawMarkup };
   };
 
