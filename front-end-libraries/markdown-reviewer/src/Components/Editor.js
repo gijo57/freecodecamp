@@ -1,12 +1,15 @@
 import "../Styles/Editor.css";
-import defaultPreview from "../defaultPreview";
 
-function Editor() {
+function Editor({ markdown, setMarkdown }) {
+  const handleChange = (e) => {
+    setMarkdown(e.target.value);
+  };
   return (
     <div className="Editor">
       <div>Editor</div>
       <textarea
-        defaultValue={defaultPreview}
+        onChange={handleChange}
+        defaultValue={markdown}
         id="editor"
         type="text"
       ></textarea>

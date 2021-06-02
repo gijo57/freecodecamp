@@ -1,6 +1,6 @@
 import "../Styles/Previewer.css";
 
-function Previewer() {
+function Previewer({ preview }) {
   return (
     <div className="Previewer">
       <div>Previewer</div>
