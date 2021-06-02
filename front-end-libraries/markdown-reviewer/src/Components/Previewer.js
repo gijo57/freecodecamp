@@ -4,7 +4,7 @@ function Previewer({ preview }) {
   return (
     <div className="Previewer">
       <div>Previewer</div>
-      <div id="preview"></div>
+      <div id="preview" dangerouslySetInnerHTML={preview} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Editor from "./Components/Editor";
 import Previewer from "./Components/Previewer";
 import defaultMarkdown from "./defaultMarkdown";
@@ -8,7 +8,17 @@ import "./App.css";
 function App() {
   const [preview, setPreview] = useState();
   const [markdown, setMarkdown] = useState(defaultMarkdown);
-  console.log(markdown);
+
+  useEffect(() => {
+    console.log("hi");
+    setPreview(parseMarkdown(markdown));
+  }, [markdown]);
+
+  const parseMarkdown = (markdown) => {
+    var rawMarkup = marked(markdown);
+    return { __html: rawMarkup };
+  };
+
   return (
     <div className="App">
       <Editor markdown={markdown} setMarkdown={setMarkdown} />
