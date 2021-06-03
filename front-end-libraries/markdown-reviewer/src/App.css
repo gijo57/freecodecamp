@@ -7,3 +7,12 @@
     align-items: center;
     background-color: #B4BCC9;
 }
+
+.fullScreen {
+    height: auto;
+    width: auto;
+}
+
+pre {
+    background: white;
+}

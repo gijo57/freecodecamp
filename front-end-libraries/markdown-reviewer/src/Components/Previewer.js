@@ -1,13 +1,24 @@
 import "../Styles/Previewer.css";
 
-function Previewer({ preview, handleFullScreen }) {
+function Previewer({ preview, handleFullScreen, setFullScreen, fullScreen }) {
+  const handleClick = () => {
+    handleFullScreen("previewerWrapper");
+    document.fullscreenElement
+      ? setFullScreen(null)
+      : setFullScreen("fullScreen");
+  };
+
   return (
-    <div id="previewerWrapper" className="Previewer">
+    <div id="previewerWrapper" className={`Previewer ${fullScreen}`}>
       <div id="previewTitle">
         <p>Previewer</p>
-        <div onClick={() => handleFullScreen("previewerWrapper")}>Expand</div>
+        <div onClick={handleClick}>Resize</div>
       </div>
-      <div id="preview" dangerouslySetInnerHTML={preview} />
+      <div
+        className={`${fullScreen}`}
+        id="preview"
+        dangerouslySetInnerHTML={preview}
+      />
     </div>
   );
 }

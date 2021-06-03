@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import Editor from "./Components/Editor";
 import Previewer from "./Components/Previewer";
 import defaultMarkdown from "./defaultMarkdown";
+
 import marked from "marked";
 import "./App.css";
 
 function App() {
   const [preview, setPreview] = useState();
   const [markdown, setMarkdown] = useState(defaultMarkdown);
+  const [fullScreen, setFullScreen] = useState(null);
 
   useEffect(() => {
     setPreview(parseMarkdown(markdown));
@@ -28,11 +30,18 @@ function App() {
   return (
     <div className="App">
       <Editor
+        fullScreen={fullScreen}
+        setFullScreen={setFullScreen}
         handleFullScreen={handleFullScreen}
         handlemarkdown={markdown}
         setMarkdown={setMarkdown}
       />
-      <Previewer handleFullScreen={handleFullScreen} preview={preview} />
+      <Previewer
+        fullScreen={fullScreen}
+        setFullScreen={setFullScreen}
+        handleFullScreen={handleFullScreen}
+        preview={preview}
+      />
     </div>
   );
 }

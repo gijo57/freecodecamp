@@ -1,4 +1,5 @@
 .Previewer {
+    overflow: auto;
     width: 70%;
     height: auto;
     margin: 50px;
@@ -7,7 +8,7 @@
 
 #preview {
     padding: 10px;
-    width: 986px;
+    width: auto;
     margin: 0;
     border: 1px solid black;
     height: auto;
@@ -16,7 +17,7 @@
 
 #previewTitle {
     font-weight: 800;
-    width: 1006px;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,5 +34,7 @@
 }
 
 #previewTitle > div {
-    
+    font-size: 10px;
+    color: white;
+    margin: 0 5px 0 0;
 }
