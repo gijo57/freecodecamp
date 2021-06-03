@@ -1,14 +1,15 @@
 import "../Styles/Editor.css";
 
-function Editor({ markdown, setMarkdown }) {
+function Editor({ markdown, setMarkdown, handleFullScreen }) {
   const handleChange = (e) => {
     setMarkdown(e.target.value);
   };
+
   return (
-    <div className="Editor">
+    <div id="editorWrapper" className="Editor">
       <div id="editorTitle">
         <p>Editor</p>
-        <div>X</div>
+        <div onClick={() => handleFullScreen("editorWrapper")}>Expand</div>
       </div>
       <textarea
         onChange={handleChange}

@@ -1,11 +1,11 @@
 import "../Styles/Previewer.css";
 
-function Previewer({ preview }) {
+function Previewer({ preview, handleFullScreen }) {
   return (
-    <div className="Previewer">
+    <div id="previewerWrapper" className="Previewer">
       <div id="previewTitle">
         <p>Previewer</p>
-        <div>X</div>
+        <div onClick={() => handleFullScreen("previewerWrapper")}>Expand</div>
       </div>
       <div id="preview" dangerouslySetInnerHTML={preview} />
     </div>

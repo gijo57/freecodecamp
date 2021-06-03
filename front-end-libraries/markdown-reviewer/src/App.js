@@ -10,9 +10,15 @@ function App() {
   const [markdown, setMarkdown] = useState(defaultMarkdown);
 
   useEffect(() => {
-    console.log("hi");
     setPreview(parseMarkdown(markdown));
   }, [markdown]);
+
+  const handleFullScreen = (id) => {
+    let elem = document.getElementById(id);
+    document.fullscreenElement
+      ? document.exitFullscreen()
+      : elem.requestFullscreen();
+  };
 
   const parseMarkdown = (markdown) => {
     let rawMarkup = marked(markdown);
@@ -21,8 +27,12 @@ function App() {
 
   return (
     <div className="App">
-      <Editor markdown={markdown} setMarkdown={setMarkdown} />
-      <Previewer preview={preview} />
+      <Editor
+        handleFullScreen={handleFullScreen}
+        handlemarkdown={markdown}
+        setMarkdown={setMarkdown}
+      />
+      <Previewer handleFullScreen={handleFullScreen} preview={preview} />
     </div>
   );
 }

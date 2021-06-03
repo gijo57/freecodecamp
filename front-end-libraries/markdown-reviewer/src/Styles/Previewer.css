@@ -1,25 +1,27 @@
 .Previewer {
-    width: 50%;
-    height: 500px;
+    width: 70%;
+    height: auto;
     margin: 50px;
     box-shadow: 0 0 15px;
 }
 
 #preview {
+    padding: 10px;
+    width: 986px;
     margin: 0;
     border: 1px solid black;
-    width: 716px;
-    height: 466px;
+    height: auto;
     background-color: #E1E4E9;
 }
 
 #previewTitle {
+    font-weight: 800;
+    width: 1006px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0;
     border: 1px solid black;
-    width: 720px;
     height: 26px;
     background: #3E5476;
 }
@@ -28,4 +30,8 @@
     color: white;
     margin: 0 0 0 20px;
     padding: 0;
+}
+
+#previewTitle > div {
+    
 }
