@@ -14,7 +14,7 @@ function Timer({
   const [remainingBreak, setRemainingBreak] = useState(breakTime);
   const [remainingSession, setRemainingSession] = useState(sessionTime);
   const currentTimeShown = isSession ? remainingSession : remainingBreak;
-  console.log(isRunning);
+
   const handleStartStop = () => {
     isRunning ? setIsRunning(false) : setIsRunning(true);
   };
@@ -24,11 +24,21 @@ function Timer({
     setRemainingSession(sessionTime);
   }, [breakTime, sessionTime]);
 
+  useEffect(() => {
+    if (!isRunning) return;
+
+    const countdown = setInterval(() => {
+      setRemainingSession(remainingSession - 1);
+    }, 1000);
+
+    return () => clearInterval(countdown);
+  }, [remainingSession, isRunning]);
+
   const handleReset = () => {
-    setIsRunning(false);
-    setIsSession(true);
     setBreakTime(5);
     setSessionTime(25);
+    setIsRunning(false);
+    setIsSession(true);
   };
 
   return (
