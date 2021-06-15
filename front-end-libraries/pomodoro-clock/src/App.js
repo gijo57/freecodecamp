@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import BreakControl from './Components/BreakControl';
 import SessionControl from './Components/SessionControl';
@@ -7,6 +7,7 @@ function App() {
   const [breakTime, setBreakTime] = useState(5);
   const [sessionTime, setSessionTime] = useState(25);
   const [isSession, setIsSession] = useState(true);
+  const [isRunning, setIsRunning] = useState(false);
 
   return (
     <div className="App">
@@ -23,6 +24,8 @@ function App() {
         sessionTime={sessionTime}
         isSession={isSession}
         setIsSession={setIsSession}
+        isRunning={isRunning}
+        setIsRunning={setIsRunning}
       />
     </div>
   );

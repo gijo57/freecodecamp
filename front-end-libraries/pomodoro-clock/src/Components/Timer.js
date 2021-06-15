@@ -7,18 +7,26 @@ function Timer({
   breakTime,
   sessionTime,
   isSession,
-  setIsSession
+  setIsSession,
+  isRunning,
+  setIsRunning
 }) {
   const [remainingBreak, setRemainingBreak] = useState(breakTime);
   const [remainingSession, setRemainingSession] = useState(sessionTime);
+  const currentTimeShown = isSession ? remainingSession : remainingBreak;
+  console.log(isRunning);
+  const handleStartStop = () => {
+    isRunning ? setIsRunning(false) : setIsRunning(true);
+  };
 
-  const handleStartStop = () => {};
   useEffect(() => {
     setRemainingBreak(breakTime);
     setRemainingSession(sessionTime);
   }, [breakTime, sessionTime]);
 
   const handleReset = () => {
+    setIsRunning(false);
+    setIsSession(true);
     setBreakTime(5);
     setSessionTime(25);
   };
@@ -26,8 +34,8 @@ function Timer({
   return (
     <div className="Timer">
       <h2 id="timer-label">{isSession ? 'Session' : 'Break'}</h2>
-      <div id="time-left">{isSession ? remainingSession : remainingBreak}</div>
-      <div>Start/Stop</div>
+      <div id="time-left">{currentTimeShown}</div>
+      <div onClick={handleStartStop}>Start/Stop</div>
       <div onClick={handleReset}>Reset</div>
     </div>
   );
