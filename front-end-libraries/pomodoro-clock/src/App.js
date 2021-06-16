@@ -5,7 +5,7 @@ import SessionControl from './Components/SessionControl';
 import Timer from './Components/Timer';
 function App() {
   const [breakTime, setBreakTime] = useState(5);
-  const [sessionTime, setSessionTime] = useState(25);
+  const [sessionTime, setSessionTime] = useState(5);
   const [isSession, setIsSession] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
 

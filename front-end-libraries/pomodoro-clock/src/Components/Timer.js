@@ -27,16 +27,46 @@ function Timer({
   useEffect(() => {
     if (!isRunning) return;
 
-    const countdown = setInterval(() => {
-      setRemainingSession(remainingSession - 1);
-    }, 1000);
+    let countdown;
+    if (isSession) {
+      console.log('session');
+      if (remainingSession) {
+        countdown = setInterval(() => {
+          setRemainingSession(remainingSession - 1);
+        }, 1000);
+      } else {
+        setIsSession(false);
+        setRemainingSession(sessionTime);
+      }
+    } else {
+      console.log('break');
+      if (remainingBreak) {
+        countdown = setInterval(() => {
+          console.log('hi');
+          setRemainingBreak(remainingBreak - 1);
+        }, 1000);
+      } else {
+        setIsSession(true);
+        setRemainingBreak(breakTime);
+      }
+    }
 
     return () => clearInterval(countdown);
-  }, [remainingSession, isRunning]);
+  }, [
+    remainingSession,
+    isRunning,
+    isSession,
+    remainingBreak,
+    setIsSession,
+    breakTime,
+    sessionTime
+  ]);
 
   const handleReset = () => {
     setBreakTime(5);
-    setSessionTime(25);
+    setSessionTime(5);
+    setRemainingBreak(breakTime);
+    setRemainingSession(sessionTime);
     setIsRunning(false);
     setIsSession(true);
   };
