@@ -4,8 +4,8 @@ function SessionControl({ sessionTime, setSessionTime }) {
   const handleSessionTimeUpdate = (type) => {
     if (sessionTime > 0) {
       type === 'increment'
-        ? setSessionTime(sessionTime + 1)
-        : setSessionTime(sessionTime - 1);
+        ? setSessionTime(sessionTime + 60)
+        : setSessionTime(sessionTime - 60);
     }
   };
   return (
@@ -18,7 +18,7 @@ function SessionControl({ sessionTime, setSessionTime }) {
         >
           +
         </div>
-        <div id="session-length">{sessionTime}</div>
+        <div id="session-length">{sessionTime / 60}</div>
         <div
           onClick={() => handleSessionTimeUpdate('decrement')}
           id="session-decrement"

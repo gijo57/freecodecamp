@@ -2,10 +2,10 @@ import './BreakControl.css';
 
 function BreakControl({ breakTime, setBreakTime }) {
   const handleBreakTimeUpdate = (type) => {
-    if (breakTime > 1 && breakTime < 60) {
+    if (breakTime > 60 && breakTime < 3600) {
       type === 'increment'
-        ? setBreakTime(breakTime + 1)
-        : setBreakTime(breakTime - 1);
+        ? setBreakTime(breakTime + 60)
+        : setBreakTime(breakTime - 60);
     }
   };
 
@@ -19,7 +19,7 @@ function BreakControl({ breakTime, setBreakTime }) {
         >
           +
         </div>
-        <div id="break-length">{breakTime}</div>
+        <div id="break-length">{breakTime / 60}</div>
         <div
           onClick={() => handleBreakTimeUpdate('decrement')}
           id="break-decrement"

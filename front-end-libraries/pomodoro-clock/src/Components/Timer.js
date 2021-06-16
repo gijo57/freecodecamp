@@ -60,18 +60,26 @@ function Timer({
   ]);
 
   const handleReset = () => {
-    setBreakTime(5);
-    setSessionTime(5);
+    setBreakTime(300);
+    setSessionTime(300);
     setRemainingBreak(breakTime);
     setRemainingSession(sessionTime);
     setIsRunning(false);
     setIsSession(true);
   };
 
+  const displayMinutesAndSeconds = (time) => {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    return `${minutes > 9 ? minutes : `0${minutes}`}:${
+      seconds > 9 ? seconds : `0${seconds}`
+    }`;
+  };
+
   return (
     <div className="Timer">
       <h2 id="timer-label">{isSession ? 'Session' : 'Break'}</h2>
-      <div id="time-left">{currentTimeShown}</div>
+      <div id="time-left">{displayMinutesAndSeconds(currentTimeShown)}</div>
       <div onClick={handleStartStop}>Start/Stop</div>
       <div onClick={handleReset}>Reset</div>
     </div>
