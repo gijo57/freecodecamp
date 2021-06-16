@@ -29,7 +29,6 @@ function Timer({
 
     let countdown;
     if (isSession) {
-      console.log('session');
       if (remainingSession) {
         countdown = setInterval(() => {
           setRemainingSession(remainingSession - 1);
@@ -39,10 +38,8 @@ function Timer({
         setRemainingSession(sessionTime);
       }
     } else {
-      console.log('break');
       if (remainingBreak) {
         countdown = setInterval(() => {
-          console.log('hi');
           setRemainingBreak(remainingBreak - 1);
         }, 1000);
       } else {
