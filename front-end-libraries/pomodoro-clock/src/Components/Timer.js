@@ -61,7 +61,7 @@ function Timer({
 
   const handleReset = () => {
     setBreakTime(300);
-    setSessionTime(300);
+    setSessionTime(1500);
     setRemainingBreak(breakTime);
     setRemainingSession(sessionTime);
     setIsRunning(false);
@@ -81,10 +81,10 @@ function Timer({
       <h2 id="timer-label">{isSession ? 'Session' : 'Break'}</h2>
       <div id="time-left">{displayMinutesAndSeconds(currentTimeShown)}</div>
       <div id="timer-buttons">
-        <div className="timer-button" onClick={handleStartStop}>
+        <div id="start_stop" className="timer-button" onClick={handleStartStop}>
           Start/Stop
         </div>
-        <div className="timer-button" onClick={handleReset}>
+        <div id="reset" className="timer-button" onClick={handleReset}>
           Reset
         </div>
       </div>

@@ -2,7 +2,7 @@ import './SessionControl.css';
 
 function SessionControl({ sessionTime, setSessionTime }) {
   const handleSessionTimeUpdate = (type) => {
-    if (sessionTime > 0) {
+    if (sessionTime > 60 && sessionTime < 3600) {
       type === 'increment'
         ? setSessionTime(sessionTime + 60)
         : setSessionTime(sessionTime - 60);
