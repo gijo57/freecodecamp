@@ -80,8 +80,14 @@ function Timer({
     <div className="Timer">
       <h2 id="timer-label">{isSession ? 'Session' : 'Break'}</h2>
       <div id="time-left">{displayMinutesAndSeconds(currentTimeShown)}</div>
-      <div onClick={handleStartStop}>Start/Stop</div>
-      <div onClick={handleReset}>Reset</div>
+      <div id="timer-buttons">
+        <div className="timer-button" onClick={handleStartStop}>
+          Start/Stop
+        </div>
+        <div className="timer-button" onClick={handleReset}>
+          Reset
+        </div>
+      </div>
     </div>
   );
 }

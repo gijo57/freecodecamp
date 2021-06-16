@@ -8,15 +8,17 @@ function App() {
   const [sessionTime, setSessionTime] = useState(300);
   const [isSession, setIsSession] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
-  console.log(breakTime, sessionTime);
+
   return (
     <div className="App">
       <h1>Pomodoro Timer</h1>
-      <BreakControl breakTime={breakTime} setBreakTime={setBreakTime} />
-      <SessionControl
-        sessionTime={sessionTime}
-        setSessionTime={setSessionTime}
-      />
+      <div id="controls">
+        <BreakControl breakTime={breakTime} setBreakTime={setBreakTime} />
+        <SessionControl
+          sessionTime={sessionTime}
+          setSessionTime={setSessionTime}
+        />
+      </div>
       <Timer
         setBreakTime={setBreakTime}
         setSessionTime={setSessionTime}

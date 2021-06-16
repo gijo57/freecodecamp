@@ -1,0 +1,17 @@
+.SessionControl {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#session-time-control {
+  font-size: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.session-button {
+  cursor: pointer;
+}

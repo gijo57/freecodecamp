@@ -1,0 +1,17 @@
+.BreakControl {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#break-time-control {
+  font-size: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.break-button {
+  cursor: pointer;
+}

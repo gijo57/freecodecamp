@@ -1,0 +1,33 @@
+.Timer {
+  margin: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  border: 5px solid rgba(19, 19, 89, 0.2);
+  border-radius: 20px;
+  background: rgba(19, 19, 89, 0.4);
+}
+
+#timer-label {
+  margin: 0 0 20px 0;
+}
+
+#timer-buttons {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.timer-button {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+}

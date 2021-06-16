@@ -14,6 +14,7 @@ function SessionControl({ sessionTime, setSessionTime }) {
       <div id="session-time-control">
         <div
           onClick={() => handleSessionTimeUpdate('increment')}
+          className="session-button"
           id="session-increment"
         >
           +
@@ -21,6 +22,7 @@ function SessionControl({ sessionTime, setSessionTime }) {
         <div id="session-length">{sessionTime / 60}</div>
         <div
           onClick={() => handleSessionTimeUpdate('decrement')}
+          className="session-button"
           id="session-decrement"
         >
           -
