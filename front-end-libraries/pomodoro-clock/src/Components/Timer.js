@@ -73,7 +73,7 @@ function Timer({
 
   const handleReset = () => {
     setBreakTime(300);
-    setSessionTime(15000);
+    setSessionTime(1500);
     setRemainingBreak(breakTime);
     setRemainingSession(sessionTime);
     setIsRunning(false);
