@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Timer.css';
+import audio from '../alarm.mp3';
 
 function Timer({
   setBreakTime,
@@ -26,6 +27,7 @@ function Timer({
 
   useEffect(() => {
     if (!isRunning) return;
+    const sound = new Audio(audio);
 
     let countdown;
     if (isSession) {
@@ -34,6 +36,11 @@ function Timer({
           setRemainingSession(remainingSession - 1);
         }, 1000);
       } else {
+        sound.play();
+        setTimeout(() => {
+          sound.pause();
+          sound.currentTime = 0;
+        }, 5000);
         setIsSession(false);
         setRemainingSession(sessionTime);
       }
@@ -43,6 +50,11 @@ function Timer({
           setRemainingBreak(remainingBreak - 1);
         }, 1000);
       } else {
+        sound.play();
+        setTimeout(() => {
+          sound.pause();
+          sound.currentTime = 0;
+        }, 5000);
         setIsSession(true);
         setRemainingBreak(breakTime);
       }
@@ -61,7 +73,7 @@ function Timer({
 
   const handleReset = () => {
     setBreakTime(300);
-    setSessionTime(1500);
+    setSessionTime(15000);
     setRemainingBreak(breakTime);
     setRemainingSession(sessionTime);
     setIsRunning(false);

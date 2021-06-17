@@ -16,7 +16,7 @@ function BreakControl({ breakTime, setBreakTime }) {
         <div
           onClick={() => handleBreakTimeUpdate('increment')}
           className="break-button"
-          id="break-decrement"
+          id="break-increment"
         >
           +
         </div>
