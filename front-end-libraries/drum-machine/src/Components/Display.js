@@ -1,7 +1,7 @@
 import '../Styles/Display.css';
 
-function Display() {
-  return <div className="Display"></div>;
+function Display({ instrument }) {
+  return <div className="Display">{instrument}</div>;
 }
 
 export default Display;

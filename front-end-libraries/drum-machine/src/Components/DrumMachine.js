@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import '../Styles/DrumMachine.css';
 import DrumPad from './DrumPad';
 import ControlPanel from './ControlPanel';
 
 function DrumMachine() {
+  const [instrument, setInstrument] = useState('');
   const instruments = [
     { id: 'kick', command: 'Q', name: 'Kick' },
     { id: 'clap', command: 'W', name: 'Clap' },
@@ -16,13 +18,21 @@ function DrumMachine() {
   ];
 
   return (
-    <div>
-      <div id="drum-machine" className="DrumMachine">
+    <div className="DrumMachine">
+      <div id="drum-machine">
         {instruments.map((i) => {
-          return <DrumPad id={i.id} command={i.command} name={i.name} />;
+          return (
+            <DrumPad
+              setInstrument={setInstrument}
+              key={i.name}
+              id={i.id}
+              command={i.command}
+              name={i.name}
+            />
+          );
         })}
       </div>
-      <ControlPanel></ControlPanel>
+      <ControlPanel instrument={instrument}></ControlPanel>
     </div>
   );
 }

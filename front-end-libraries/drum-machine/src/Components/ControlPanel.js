@@ -2,10 +2,10 @@ import '../Styles/ControlPanel.css';
 import Display from './Display';
 import Volume from './Volume';
 
-function ControlPanel() {
+function ControlPanel({ instrument }) {
   return (
     <div className="control-panel">
-      <Display />
+      <Display instrument={instrument} />
       <Volume />
     </div>
   );

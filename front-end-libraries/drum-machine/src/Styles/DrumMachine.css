@@ -1,0 +1,20 @@
+.DrumMachine {
+  border: 5px solid darkred;
+  background-color: rgba(184, 0, 0, 0.4);
+  width: 40em;
+  height: 25em;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#drum-machine {
+  margin: 1em;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}

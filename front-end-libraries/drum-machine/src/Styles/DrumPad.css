@@ -1,0 +1,14 @@
+.drum-pad {
+  background-color: darkred;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.4em;
+  border-radius: 5px;
+  width: 3.8em;
+  height: 3.8em;
+  margin: 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px;
+}
