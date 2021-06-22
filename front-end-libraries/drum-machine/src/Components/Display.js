@@ -1,7 +1,7 @@
 import '../Styles/Display.css';
 
-function Display({ instrument }) {
+const Display = ({ instrument }) => {
   return <div className="Display">{instrument}</div>;
-}
+};
 
 export default Display;

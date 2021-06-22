@@ -1,7 +1,7 @@
 import '../Styles/Volume.css';
 
-function Volume() {
+const Volume = () => {
   return <div className="Volume">Volume</div>;
-}
+};
 
 export default Volume;

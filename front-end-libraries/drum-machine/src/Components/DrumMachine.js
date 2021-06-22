@@ -3,7 +3,7 @@ import '../Styles/DrumMachine.css';
 import DrumPad from './DrumPad';
 import ControlPanel from './ControlPanel';
 
-function DrumMachine() {
+const DrumMachine = () => {
   const [instrument, setInstrument] = useState('');
   const instruments = [
     { id: 'kick', command: 'Q', name: 'Kick' },
@@ -35,6 +35,6 @@ function DrumMachine() {
       <ControlPanel instrument={instrument}></ControlPanel>
     </div>
   );
-}
+};
 
 export default DrumMachine;
