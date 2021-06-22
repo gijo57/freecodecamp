@@ -2,11 +2,11 @@ import '../Styles/ControlPanel.css';
 import Display from './Display';
 import Volume from './Volume';
 
-const ControlPanel = ({ instrument }) => {
+const ControlPanel = ({ volume, instrument, setVolume }) => {
   return (
     <div className="control-panel">
       <Display instrument={instrument} />
-      <Volume />
+      <Volume volume={volume} setVolume={setVolume} />
     </div>
   );
 };

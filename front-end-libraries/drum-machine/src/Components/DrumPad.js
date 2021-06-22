@@ -2,14 +2,15 @@ import { useEffect, useState, useCallback } from 'react';
 import '../Styles/DrumPad.css';
 import getAudio from '../audios';
 
-const DrumPad = ({ id, command, name, setInstrument }) => {
+const DrumPad = ({ id, command, name, setInstrument, volume }) => {
   const [audio, setAudio] = useState(null);
 
   const handlePlay = useCallback(() => {
     let audioElement = new Audio(audio);
+    audioElement.volume = volume / 100;
     audioElement.play();
     setInstrument(name);
-  }, [audio, name, setInstrument]);
+  }, [audio, name, setInstrument, volume]);
 
   useEffect(() => {
     setAudio(getAudio(id));

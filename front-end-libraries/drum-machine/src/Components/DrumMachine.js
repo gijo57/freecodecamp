@@ -5,6 +5,8 @@ import ControlPanel from './ControlPanel';
 
 const DrumMachine = () => {
   const [instrument, setInstrument] = useState('');
+  const [volume, setVolume] = useState('');
+
   const instruments = [
     { id: 'kick', command: 'Q', name: 'Kick' },
     { id: 'clap', command: 'W', name: 'Clap' },
@@ -23,6 +25,7 @@ const DrumMachine = () => {
         {instruments.map((i) => {
           return (
             <DrumPad
+              volume={volume}
               setInstrument={setInstrument}
               key={i.name}
               id={i.id}
@@ -32,7 +35,11 @@ const DrumMachine = () => {
           );
         })}
       </div>
-      <ControlPanel instrument={instrument}></ControlPanel>
+      <ControlPanel
+        volume={volume}
+        setVolume={setVolume}
+        instrument={instrument}
+      ></ControlPanel>
     </div>
   );
 };
