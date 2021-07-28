@@ -4,16 +4,24 @@ const app = express();
 const cors = require('cors');
 app.use(cors({ optionsSuccessStatus: 200 }));
 
-app.get('/api/:date', (req, res) => {
+app.get('/api/:date?', (req, res) => {
   const { date } = req.params;
   let unixStamp, dateStamp;
-
-  if (Date.parse(date)) {
-    unixStamp = Date.parse(date);
-    dateStamp = new Date(date).toUTCString();
+  if (!date) {
+    unixStamp = Date.now();
+    dateStamp = new Date().toUTCString();
   } else {
-    unixStamp = date;
-    dateStamp = new Date(Number(date)).toUTCString();
+    if (Date.parse(date)) {
+      unixStamp = Date.parse(date);
+      dateStamp = new Date(date).toUTCString();
+    } else {
+      unixStamp = Number(date);
+      dateStamp = new Date(Number(date)).toUTCString();
+    }
+  }
+
+  if (dateStamp === 'Invalid Date') {
+    res.json({ error: dateStamp });
   }
 
   res.json({
