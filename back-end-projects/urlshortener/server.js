@@ -17,10 +17,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.get('/api/shorturl/:short_url', async (req, res) => {
+app.get('/api/shorturl/:short_url?', async (req, res) => {
   const shortUrl = req.params.short_url;
   const url = await Url.findOne({ shortUrl });
-  res.redirect(url.url);
+
+  if (url) {
+    res.redirect(url.url);
+  } else {
+    res.status(404).send('404 Not found');
+  }
 });
 
 app.post('/api/shorturl/', function (req, res) {
@@ -36,9 +41,9 @@ app.post('/api/shorturl/', function (req, res) {
 
   dns.lookup(dnsUrl, async (err, address, family) => {
     if (err) {
-      res.json({ error: 'invalid url' });
+      res.status(401).json({ error: 'invalid url' });
     } else {
-      const shortUrl = shortid.generate();
+      const shortUrl = shortId.generate();
       const newUrl = new Url({
         shortUrl,
         url
