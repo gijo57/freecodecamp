@@ -3,12 +3,23 @@ const express = require('express');
 const cors = require('cors');
 const dns = require('dns');
 const app = express();
-
+const db = require('mongoose');
 const port = process.env.PORT || 3000;
+const Url = require('./url');
+
+db.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+
+app.get('/api/shorturl/:short_url', async (req, res) => {
+  const shortUrl = req.params.short_url;
+  const url = await Url.findOne({ shortUrl });
+});
 
 app.post('/api/shorturl/', function (req, res) {
   const url = req.body.url;
@@ -21,13 +32,21 @@ app.post('/api/shorturl/', function (req, res) {
     dnsUrl = 'Not valid';
   }
 
-  dns.lookup(dnsUrl, (err, address, family) => {
+  dns.lookup(dnsUrl, async (err, address, family) => {
     if (err) {
       res.json({ error: 'invalid url' });
     } else {
+      const shortUrl = Number(address.substr(0, 3));
+      const newUrl = new Url({
+        shortUrl,
+        url
+      });
+
+      await newUrl.save();
+
       res.json({
         original_url: url,
-        short_url: Number(address.substr(0, 3))
+        short_url: shortUrl
       });
     }
   });
