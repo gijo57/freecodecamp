@@ -4,6 +4,7 @@ const cors = require('cors');
 const dns = require('dns');
 const app = express();
 const db = require('mongoose');
+const shortId = require('shortid');
 const port = process.env.PORT || 3000;
 const Url = require('./url');
 
@@ -37,7 +38,7 @@ app.post('/api/shorturl/', function (req, res) {
     if (err) {
       res.json({ error: 'invalid url' });
     } else {
-      const shortUrl = Number(address.substr(0, 3));
+      const shortUrl = shortid.generate();
       const newUrl = new Url({
         shortUrl,
         url
