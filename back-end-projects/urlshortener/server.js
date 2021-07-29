@@ -19,6 +19,7 @@ app.use(express.urlencoded());
 app.get('/api/shorturl/:short_url', async (req, res) => {
   const shortUrl = req.params.short_url;
   const url = await Url.findOne({ shortUrl });
+  res.redirect(url.url);
 });
 
 app.post('/api/shorturl/', function (req, res) {
