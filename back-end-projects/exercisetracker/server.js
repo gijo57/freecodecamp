@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.post('/api/users', (req, res) => {});
+
+app.post('/api/users/:_id/exercises', (req, res) => {});
+
 const PORT = process.env.PORT || 3000;
 
 const listener = app.listen(PORT, () => {
