@@ -14,12 +14,27 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.post('/api/users', (req, res) => {});
+app.get('/api/users', async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+});
+
+app.post('/api/users', async (req, res) => {
+  const { username } = req.body;
+  const user = new User({
+    username
+  });
+
+  await user.save();
+
+  res.json(user);
+});
 
 app.post('/api/users/:_id/exercises', (req, res) => {});
 
