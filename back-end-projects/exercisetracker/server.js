@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./user');
+const Exercise = require('./exercise');
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -25,6 +26,14 @@ app.get('/api/users', async (req, res) => {
   res.json(users);
 });
 
+app.get('/api/users/:id/logs', async (req, res) => {
+  const id = req.params;
+  const user = await User.findOne(id);
+  const exercises = await Exercise.find(id);
+  console.log(exercises);
+  res.json('hola');
+});
+
 app.post('/api/users', async (req, res) => {
   const { username } = req.body;
   const user = new User({
@@ -36,7 +45,32 @@ app.post('/api/users', async (req, res) => {
   res.json(user);
 });
 
-app.post('/api/users/:_id/exercises', (req, res) => {});
+app.post('/api/users/:_id/exercises', async (req, res) => {
+  const id = req.params;
+  const description = req.body.description;
+  const duration = Number(req.body.duration);
+  const date = req.body.date ? new Date(req.body.date) : new Date();
+
+  const user = await User.findOne(id);
+
+  const exercise = new Exercise({
+    userId: user.id,
+    description,
+    duration,
+    date
+  });
+
+  const response = {
+    _id: user._id,
+    username: user.username,
+    description,
+    duration,
+    date: date
+  };
+
+  await exercise.save();
+  res.json(response);
+});
 
 const PORT = process.env.PORT || 3000;
 
