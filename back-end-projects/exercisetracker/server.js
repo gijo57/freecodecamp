@@ -26,12 +26,25 @@ app.get('/api/users', async (req, res) => {
   res.json(users);
 });
 
-app.get('/api/users/:id/logs', async (req, res) => {
+app.get('/api/users/:_id/logs', async (req, res) => {
   const id = req.params;
-  const user = await User.findOne(id);
-  const exercises = await Exercise.find(id);
-  console.log(exercises);
-  res.json('hola');
+  const user = await User.findById(id);
+
+  const exercises = await Exercise.find({ userId: user._id }).map((e) => {
+    return {
+      description: e.description,
+      duartion: e.duration,
+      date: e.date
+    };
+  });
+
+  const response = {
+    _id: user._id,
+    username: user.username,
+    logs: exercises
+  };
+
+  res.json(response);
 });
 
 app.post('/api/users', async (req, res) => {
@@ -51,10 +64,10 @@ app.post('/api/users/:_id/exercises', async (req, res) => {
   const duration = Number(req.body.duration);
   const date = req.body.date ? new Date(req.body.date) : new Date();
 
-  const user = await User.findOne(id);
+  const user = await User.findById(id);
 
   const exercise = new Exercise({
-    userId: user.id,
+    userId: user._id,
     description,
     duration,
     date
