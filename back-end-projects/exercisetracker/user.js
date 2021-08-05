@@ -11,4 +11,5 @@ userSchema.set('toJSON', {
     return ret;
   }
 });
+
 module.exports = mongoose.model('User', userSchema);
