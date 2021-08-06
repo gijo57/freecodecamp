@@ -56,7 +56,6 @@ app.get('/api/users/:_id/logs', async (req, res) => {
     };
   });
 
-  console.log(limit);
   if (limit === 0) {
     log = [];
   } else if (limit > 0) {
