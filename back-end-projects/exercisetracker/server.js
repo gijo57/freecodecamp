@@ -27,6 +27,7 @@ app.get('/api/users', async (req, res) => {
 });
 
 app.get('/api/users/:_id/logs', async (req, res) => {
+  const { from, to, limit } = req.query;
   const id = req.params;
   const user = await User.findById(id);
 
