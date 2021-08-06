@@ -27,18 +27,41 @@ app.get('/api/users', async (req, res) => {
 });
 
 app.get('/api/users/:_id/logs', async (req, res) => {
-  const { from, to, limit } = req.query;
+  const { from, to } = req.query;
   const id = req.params;
   const user = await User.findById(id);
-
   const exercises = await Exercise.find({ userId: user._id });
-  const log = exercises.map((e) => {
+
+  const filteredExercises = exercises
+    .filter((e) => {
+      if (from) {
+        return new Date(e.date) >= new Date(from);
+      }
+      return e;
+    })
+    .filter((e) => {
+      if (to) {
+        return new Date(e.date) <= new Date(to);
+      }
+      return e;
+    });
+
+  const limit = Number(req.query.limit);
+
+  let log = filteredExercises.map((e) => {
     return {
       description: e.description,
       duration: e.duration,
       date: e.date
     };
   });
+
+  console.log(limit);
+  if (limit === 0) {
+    log = [];
+  } else if (limit > 0) {
+    log = log.slice(0, limit);
+  }
 
   const response = {
     _id: user._id,
