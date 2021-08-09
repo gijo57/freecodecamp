@@ -39,6 +39,9 @@ app.post('/api/shorturl/', function (req, res) {
     dnsUrl = 'Not valid';
   }
 
+  let pattern = /[^/]*/gi;
+  dnsUrl = dnsUrl.match(pattern)[0];
+
   dns.lookup(dnsUrl, async (err, address, family) => {
     if (err) {
       res.status(401).json({ error: 'invalid url' });
